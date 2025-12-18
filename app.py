@@ -25,7 +25,7 @@ def run_crew_logic(company, url):
         backstory="Expert researcher finding sales hooks.",
         tools=[search_tool, scrape_tool],
         verbose=False,
-        memory=False # Disabled for speed in UI
+        memory=False, # Disabled for speed in UI
         max_rpm=5
     )
 
@@ -34,7 +34,7 @@ def run_crew_logic(company, url):
         goal='Write personalized cold emails.',
         backstory="Top-tier copywriter. Short, punchy, problem-focused.",
         verbose=False,
-        memory=False
+        memory=False,
         max_rpm=5
     )
 

@@ -10,9 +10,12 @@ st.set_page_config(page_title="AI Sales Agent", page_icon="🚀")
 st.title("🚀 AI Sales Outreach Generator")
 st.write("Upload a CSV with 'company' and 'url' columns. The AI will research them and write emails.")
 
-# 2. API KEYS (For production, we usually use secrets, but this works for now)
-os.environ["OPENAI_API_KEY"] = "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" # <--- PASTE KEY
-os.environ["SERPER_API_KEY"] = "065a377d583fc9ae6f8f6bce0788738b87e15d9f" # <--- PASTE KEY
+# 1. SETUP KEYS
+# Check if running in Streamlit Cloud (uses secrets) or Local (uses simple string)
+if "OPENAI_API_KEY" in st.secrets:
+    os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+if "SERPER_API_KEY" in st.secrets:
+    os.environ["SERPER_API_KEY"] = st.secrets["SERPER_API_KEY"]
 
 # 3. DEFINE THE AGENT LOGIC (Cached to run faster)
 def run_crew_logic(company, url):

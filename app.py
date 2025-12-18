@@ -29,7 +29,7 @@ def run_crew_logic(company, url):
         tools=[search_tool, scrape_tool],
         verbose=False,
         memory=False, # Disabled for speed in UI
-        max_rpm=5
+        
     )
 
     writer = Agent(
@@ -38,7 +38,7 @@ def run_crew_logic(company, url):
         backstory="Top-tier copywriter. Short, punchy, problem-focused.",
         verbose=False,
         memory=False,
-        max_rpm=5
+        
     )
 
     research_task = Task(
